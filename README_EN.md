@@ -43,6 +43,32 @@ MoreImg intentionally does not copy the Image2-only generation route, thumbnail-
 
 Use MoreImg when the target artifact is a Xiaohongshu-style image-text note prompt pack. Route to an image generation, PPT, or frontend skill when the user asks for actual images, slide decks, HTML, or production files.
 
+## Installation
+
+If you are installing from Codex, you can ask Codex directly:
+
+```text
+Install this Codex Skill: https://github.com/WoodSlope/moreimg-skill
+```
+
+You can also run the official skill installer script:
+
+```bash
+python ~/.codex/skills/.system/skill-installer/scripts/install-skill-from-github.py \
+  --repo WoodSlope/moreimg-skill \
+  --path . \
+  --name moreimg-skill
+```
+
+This repository keeps `SKILL.md` at the repository root, so the install path is `.`. After installation, restart Codex or start a new thread so Codex reloads local skills.
+
+If your environment does not include `skill-installer`, install manually:
+
+```bash
+mkdir -p ~/.codex/skills
+git clone https://github.com/WoodSlope/moreimg-skill.git ~/.codex/skills/moreimg-skill
+```
+
 ## Built-In Styles
 
 - `xhs-tech-knowledge`: light silver-blue technology knowledge cards.

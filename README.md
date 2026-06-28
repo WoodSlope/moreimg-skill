@@ -19,6 +19,32 @@ topic/article/card copy -> Page Spec -> cards.md + prompts.md
 
 MoreImg 在提示词和发布配文生成后停止。它不生成位图图片，不制作 HTML，不组装 PPTX，不生成缩略图板，也不打包 zip 文件。
 
+## 安装
+
+如果你正在 Codex 里安装，可以直接对 Codex 说：
+
+```text
+请安装这个 Codex Skill：https://github.com/WoodSlope/moreimg-skill
+```
+
+也可以在终端运行官方 skill 安装脚本：
+
+```bash
+python ~/.codex/skills/.system/skill-installer/scripts/install-skill-from-github.py \
+  --repo WoodSlope/moreimg-skill \
+  --path . \
+  --name moreimg-skill
+```
+
+这个仓库的 `SKILL.md` 位于仓库根目录，所以安装路径是 `.`。安装后重启 Codex，或开启一个新线程，让 Codex 重新加载本地 skills。
+
+如果你的环境没有预装 `skill-installer`，可以手动安装：
+
+```bash
+mkdir -p ~/.codex/skills
+git clone https://github.com/WoodSlope/moreimg-skill.git ~/.codex/skills/moreimg-skill
+```
+
 ## 适用场景
 
 适合：
