@@ -43,6 +43,12 @@ MoreImg intentionally does not copy the Image2-only generation route, thumbnail-
 
 Use MoreImg when the target artifact is a Xiaohongshu-style image-text note prompt pack. Route to an image generation, PPT, or frontend skill when the user asks for actual images, slide decks, HTML, or production files.
 
+## Default Page Count
+
+For unstructured long articles, MoreImg defaults to `1 cover card + 2-7 content cards`. Each content card carries one core claim, so the source does not collapse into dense poster text.
+
+MoreImg does not add a quote page by default. It uses a quote or closing page only when the user explicitly asks for a quote page, closing page, final emphasis, shareable takeaway, or `金句页`.
+
 ## Installation
 
 If you are installing from Codex, you can ask Codex directly:

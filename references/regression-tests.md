@@ -226,3 +226,54 @@ Pass/fail:
 
 - Pass if the unstructured route differs only in pre-processing, not final `prompts.md` structure.
 - Fail if the final prompt skeleton diverges or long article paragraphs are pasted into image prompts.
+
+## 9. Unstructured Long Article Can Use 2-7 Content Pages
+
+User says:
+
+```text
+用 MoreImg 把这篇长文章做成小红书图文卡提示词。
+```
+
+Risk without the skill:
+
+- The agent keeps the older 2-4 content page limit and over-compresses a dense long article.
+- The agent expands beyond 7 content pages without the user asking for a larger page count.
+- The agent adds a final `金句页` instead of using the page budget for source content.
+
+Expected behavior:
+
+- For unstructured long articles, generate one `封面页` plus 2-7 `内容页`.
+- Select the number of content pages from the article's actual claims and density.
+- Keep one core claim per content page, with short visible text.
+- Do not add `金句页` unless the user explicitly asks for it.
+
+Pass/fail:
+
+- Pass if an unstructured long article uses 2-7 content pages and no default quote page.
+- Fail if the output is capped at 4 content pages when more source claims need pages, or expands beyond 7 content pages without user instruction.
+
+## 10. Quote Page Is Not Added By Default
+
+User says:
+
+```text
+用 MoreImg 把这篇文章做成 4 页小红书图文卡提示词。
+```
+
+Risk without the skill:
+
+- The page-type reference turns the final page into `金句页` just because the carousel has 4-5 pages.
+- The generated package becomes `封面页 + 内容页 + 金句页`, even though the user did not ask for a closing card.
+- A summary quote replaces a content claim from the source.
+
+Expected behavior:
+
+- Default page labels remain `封面页` and `内容页1/N`.
+- The final page is a content page selected by meaning, such as 清单页、关系页、对比页、流程页、时间线页 or 框架页.
+- `金句页` appears only when the user explicitly asks for 金句页、收尾页、结尾强调、转发记忆点 or closing page.
+
+Pass/fail:
+
+- Pass if a normal 3-8 page request does not contain `金句页`.
+- Fail if the skill adds a quote page only because it is the last page.

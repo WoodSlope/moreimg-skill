@@ -9,6 +9,7 @@ Use this checklist when generating or reviewing final visual prompts.
 - `prompts.md` contains selected style, Style Lock, prompt skeleton or style notes, and page prompts.
 - Default card set starts with 1 cover card plus the user-provided or generated content cards.
 - Do not add a back-cover card unless the user asks for a closing page.
+- Do not add a `金句页` by default; use it only when the user explicitly asks for a quote page, closing page, final emphasis, or shareable takeaway.
 - Each content card has one core claim and 3-5 short visible information strips at most.
 - Do not output stage analysis, variable tables, or a separate self-check report by default.
 

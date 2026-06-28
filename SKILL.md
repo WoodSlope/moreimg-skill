@@ -98,7 +98,7 @@ For conditional routes:
 3. Normalize the input into one `Page Spec` list:
    - Every page spec must include: page label, page type, page goal, visible text, semantic mapping, and avoid-misread note when relevant.
    - If the user already provided card pages or a page-by-page article, preserve page count, page order, and page intent; only compress or normalize what is needed for image generation.
-   - If the user provided a long article without page structure, create one cover claim and 2-4 content pages, with one core claim per page and short visible text only.
+   - If the user provided a long article without page structure, create one cover claim and 2-7 content pages, with one core claim per page and short visible text only.
    - After Page Spec normalization, do not maintain separate workflows for paged and unpaged inputs. All inputs use the same `cards.md` and `prompts.md` generation steps.
 4. Select or confirm a page type for each page from `references/xhs-page-types.md`.
 5. Lock the content-to-visual mapping for each page before writing prompts:
