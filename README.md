@@ -1,104 +1,102 @@
 # MoreImg
 
-中文说明见 `README_CN.md`.
+English documentation: `README_EN.md`.
 
-MoreImg is a Codex Skill for turning a user-approved topic, Chinese article draft, Xiaohongshu note copy, or paged card copy into reusable, design-style-aware image-text note prompt packs.
+MoreImg 是一个 Codex Skill，用于把用户已经沟通确认的话题、中文文章草稿、小红书笔记文案或分页卡片文案，整理成带设计风格的小红书图文卡文生图提示词包。
 
-It optimizes content into a visual-generation-ready structure instead of inventing a new topic strategy or producing final images.
+它的目标不是重新发明选题，也不是生成最终图片，而是把内容优化成可交给生图模型使用的结构。
 
-Default output:
+默认输出：
 
-- `cards.md`: card structure, page type, visible text, semantic mapping, avoid-misread notes, and publish caption.
-- `prompts.md`: selected style, Style Lock, prompt skeleton, and structured per-page text-to-image prompts.
+- `cards.md`：图文卡结构、页型、入图文字、语义映射、避免误读说明和发布配文。
+- `prompts.md`：选定风格、Style Lock、提示词骨架和逐页文生图提示词。
 
-Fixed pipeline:
+固定流程：
 
 ```text
 topic/article/card copy -> Page Spec -> cards.md + prompts.md
 ```
 
-MoreImg stops at prompt and caption generation. It does not generate bitmap images, build HTML, assemble PPTX files, create thumbnail boards, or package zip files.
+MoreImg 在提示词和发布配文生成后停止。它不生成位图图片，不制作 HTML，不组装 PPTX，不生成缩略图板，也不打包 zip 文件。
 
-## Design Reference
+## 适用场景
 
-The pre-generation workflow is inspired by the local `visual-style-ppt-skill` and its public repository:
+适合：
 
-```text
-https://github.com/irenerachel/visual-style-ppt-skill
-```
+- 把中文文章改成小红书图文卡提示词。
+- 把已经分页的小红书卡片文案改成文生图提示词。
+- 调用内置风格生成统一视觉风格的 `cards.md` 和 `prompts.md`。
+- 保存、更新或复用图文卡视觉风格。
+- 对已有 `cards.md` 或 `prompts.md` 做局部返修。
 
-MoreImg adapts these useful ideas:
+不适合：
 
-- reusable style files under `styles/`
-- one selected `Style Lock` per output set
-- page type selection before prompt writing
-- structured prompt fields instead of loose one-line prompts
-- style extraction and reusable style saving
-- revision flow for partial prompt/card updates
-- final quality checklist before output
+- 直接生成最终图片。
+- 制作 PPT、HTML、网页或前端应用。
+- 只做普通文案润色。
 
-MoreImg intentionally does not copy the Image2-only generation route, thumbnail-board confirmation gate, image review loop, image-only PPTX assembly, or zip packaging from `visual-style-ppt-skill`.
+## 内置风格
 
-## Scope
+- `xhs-tech-knowledge`：浅色银灰蓝科技知识卡。
+- `xhs-terminal-tech-magazine`：深色终端/HUD 科技杂志卡。
+- `xhs-impact-grid-editorial`：机构报告和咨询网格风。
+- `xhs-french-editorial-commerce`：法式精品杂志和生活方式电商风。
+- `xhs-warm-photo-editorial`：暖调真实摄影杂志风。
 
-Use MoreImg when the target artifact is a Xiaohongshu-style image-text note prompt pack. Route to an image generation, PPT, or frontend skill when the user asks for actual images, slide decks, HTML, or production files.
+## 常用调用
 
-## Built-In Styles
-
-- `xhs-tech-knowledge`: light silver-blue technology knowledge cards.
-- `xhs-terminal-tech-magazine`: dark terminal/HUD technology cards.
-- `xhs-impact-grid-editorial`: institutional report and consulting grid cards.
-- `xhs-french-editorial-commerce`: French editorial commerce and lifestyle cards.
-- `xhs-warm-photo-editorial`: warm real-photo editorial cards for AI tool notes and lifestyle-like knowledge posts.
-
-## Common Usage
-
-List available styles:
+列出可用风格：
 
 ```text
 用 MoreImg 列出可用风格。
 ```
 
-Call a style by file name:
+按风格 ID 调用：
 
 ```text
 用 MoreImg 调用 xhs-terminal-tech-magazine，把这篇文章做成小红书图文卡提示词。
 ```
 
-Call a style by Chinese alias:
+按中文别名调用：
 
 ```text
 用法式电商杂志风，把这段文案做成 4 页小红书卡片提示词。
 ```
 
-Call the warm real-photo editorial style:
+默认输出始终是 `cards.md` 加 `prompts.md`。列出风格是主要例外，只输出简洁风格列表。
 
-```text
-用暖调真实摄影杂志风，把这篇 AI 工具心得做成小红书图文卡提示词。
+## 目录结构
+
+- `.gitignore`：忽略系统文件、编辑器文件、临时文件、日志和生成产物。
+- `SKILL.md`：运行时说明和固定 MoreImg 工作流。
+- `README.md`：中文说明，也是 GitHub 默认展示页。
+- `README_EN.md`：英文说明。
+- `README_CN.md`：中文说明镜像，用于兼容旧链接。
+- `CONTRIBUTING.md`：贡献规则，说明如何修改工作流、fixture 和风格文件。
+- `RELEASE_CHECKLIST.md`：开源发布前检查清单。
+- `RELEASE_NOTES.md`：初始发布说明和验证摘要。
+- `references/`：运行时参考文件，以及维护用回归场景。
+- `styles/`：可复用视觉风格文件。
+- `test-fixtures/`：测试输入和人工预期输出。
+- `scripts/check-fixtures.sh`：轻量机械检查脚本。
+- `agents/openai.yaml`：可选 OpenAI/Codex agent 元数据；核心 skill 不依赖它。
+
+维护材料不是运行时必读引用。正常使用 MoreImg 时，不应读取 `test-fixtures/`、`expected/` 或 `references/regression-tests.md`。
+
+## 维护与发布
+
+修改运行时行为前，请先阅读 `CONTRIBUTING.md`，并为变更补充回归场景、fixture、expected output 或脚本检查。
+
+发布前运行：
+
+```bash
+scripts/check-fixtures.sh
 ```
 
-Default output remains `cards.md` plus `prompts.md`; listing styles is the main exception and returns only a concise style list.
+发布到公开仓库前，请按 `RELEASE_CHECKLIST.md` 检查文件卫生、许可证、贡献规则、运行边界和来源说明。
 
-## Repository Layout
+## 许可证
 
-- `.gitignore`: local ignore rules for system files, editor files, temporary files, logs, and generated artifacts.
-- `SKILL.md`: runtime instructions and the fixed MoreImg workflow.
-- `README_CN.md`: Chinese user-facing documentation.
-- `CONTRIBUTING.md`: contribution rules for workflow changes, fixtures, style files, and open-source maintenance.
-- `RELEASE_CHECKLIST.md`: publishing checklist for open-source release hygiene and validation.
-- `RELEASE_NOTES.md`: initial release notes and validation summary.
-- `references/`: runtime reference files plus `regression-tests.md` for maintenance pressure scenarios.
-- `styles/`: reusable visual style files. New built-in styles should follow the same section schema as existing files.
-- `test-fixtures/`: reusable source articles and manual expected outputs for regression review.
-- `scripts/check-fixtures.sh`: lightweight mechanical checks over runtime rules, style files, fixtures, and expected outputs.
-- `agents/openai.yaml`: optional OpenAI/Codex agent metadata; the core skill does not depend on it.
+MoreImg 使用 MIT License。详见 `LICENSE`。
 
-Maintenance files are not required runtime references. Keep `test-fixtures/`, `expected/`, and `references/regression-tests.md` out of `SKILL.md` runtime routes unless a future change truly needs them during normal prompt generation.
-
-Paged/unpaged long-article fixtures protect the single Page Spec pipeline: preserve existing page structures, generate pages only when missing, and keep the final prompt skeleton identical.
-
-## License
-
-MoreImg is released under the MIT License. See `LICENSE`.
-
-The referenced `visual-style-ppt-skill` repository describes itself as a personal skill repository and recommends adding a formal open source license if it is later publicly distributed, used for external contribution, or reused as a template. Checked against the public README on 2026-06-28. This README records design inspiration and workflow boundaries; it is not a license grant for that repository.
+MoreImg 的预生成工作流受到 `visual-style-ppt-skill` 的启发，但只复用了适合图文卡提示词生成的前置能力，例如风格文件、Style Lock、页型选择、结构化提示词、风格保存和质量检查。MoreImg 不复制它的 Image2 生成路线、缩略图确认、图片审查、PPTX 组装或 zip 打包流程。

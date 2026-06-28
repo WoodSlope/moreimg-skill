@@ -15,7 +15,9 @@ Use this checklist before publishing MoreImg as an open-source repository.
 
 - `LICENSE` exists and uses the MIT License.
 - `CONTRIBUTING.md` exists and documents contribution rules.
-- `README_CN.md` exists and explains the user-facing workflow in Chinese.
+- `README.md` is Chinese-first and links to `README_EN.md`.
+- `README_EN.md` exists and preserves English documentation.
+- `README_CN.md` exists as a Chinese compatibility mirror.
 - `RELEASE_NOTES.md` exists and summarizes the initial release.
 - `README.md` explains the design reference to `visual-style-ppt-skill` and makes clear that MoreImg does not copy its production workflow.
 - `README.md` lists the repository layout, including `.gitignore` and `RELEASE_CHECKLIST.md`.

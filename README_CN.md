@@ -1,5 +1,7 @@
 # MoreImg
 
+English documentation: `README_EN.md`.
+
 MoreImg 是一个 Codex Skill，用于把用户已经沟通确认的话题、中文文章草稿、小红书笔记文案或分页卡片文案，整理成带设计风格的小红书图文卡文生图提示词包。
 
 它的目标不是重新发明选题，也不是生成最终图片，而是把内容优化成可交给生图模型使用的结构。
@@ -67,8 +69,9 @@ MoreImg 在提示词和发布配文生成后停止。它不生成位图图片，
 
 - `.gitignore`：忽略系统文件、编辑器文件、临时文件、日志和生成产物。
 - `SKILL.md`：运行时说明和固定 MoreImg 工作流。
-- `README.md`：英文说明。
-- `README_CN.md`：中文说明。
+- `README.md`：中文说明，也是 GitHub 默认展示页。
+- `README_EN.md`：英文说明。
+- `README_CN.md`：中文说明镜像，用于兼容旧链接。
 - `CONTRIBUTING.md`：贡献规则，说明如何修改工作流、fixture 和风格文件。
 - `RELEASE_CHECKLIST.md`：开源发布前检查清单。
 - `RELEASE_NOTES.md`：初始发布说明和验证摘要。
