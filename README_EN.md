@@ -79,6 +79,18 @@ Call the warm real-photo editorial style:
 
 Default output remains `cards.md` plus `prompts.md`; listing styles is the main exception and returns only a concise style list.
 
+## Output Examples
+
+Each example includes one source article plus the generated `cards.md` and `prompts.md` pair:
+
+| Scenario | Source Article | cards.md | prompts.md |
+| --- | --- | --- | --- |
+| Workflow / Skill concept relationship | [workflow-concept.md](test-fixtures/articles/workflow-concept.md) | [cards.md](test-fixtures/expected/workflow-concept/cards.md) | [prompts.md](test-fixtures/expected/workflow-concept/prompts.md) |
+| Terminal tech magazine debugging note | [agent-debug-terminal.md](test-fixtures/articles/agent-debug-terminal.md) | [cards.md](test-fixtures/expected/agent-debug-terminal/cards.md) | [prompts.md](test-fixtures/expected/agent-debug-terminal/prompts.md) |
+| French editorial commerce capsule wardrobe | [capsule-wardrobe-commerce.md](test-fixtures/articles/capsule-wardrobe-commerce.md) | [cards.md](test-fixtures/expected/capsule-wardrobe-commerce/cards.md) | [prompts.md](test-fixtures/expected/capsule-wardrobe-commerce/prompts.md) |
+
+More complete baselines live under `test-fixtures/expected/`.
+
 ## Repository Layout
 
 - `.gitignore`: local ignore rules for system files, editor files, temporary files, logs, and generated artifacts.

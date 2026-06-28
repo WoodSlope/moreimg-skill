@@ -65,6 +65,18 @@ MoreImg 在提示词和发布配文生成后停止。它不生成位图图片，
 
 默认输出始终是 `cards.md` 加 `prompts.md`。列出风格是主要例外，只输出简洁风格列表。
 
+## 输出示例
+
+每个示例都包含一份输入文章，以及对应生成的 `cards.md` 和 `prompts.md`：
+
+| 场景 | 输入文章 | cards.md | prompts.md |
+| --- | --- | --- | --- |
+| Workflow / Skill 概念关系 | [workflow-concept.md](test-fixtures/articles/workflow-concept.md) | [cards.md](test-fixtures/expected/workflow-concept/cards.md) | [prompts.md](test-fixtures/expected/workflow-concept/prompts.md) |
+| 终端科技杂志风排错笔记 | [agent-debug-terminal.md](test-fixtures/articles/agent-debug-terminal.md) | [cards.md](test-fixtures/expected/agent-debug-terminal/cards.md) | [prompts.md](test-fixtures/expected/agent-debug-terminal/prompts.md) |
+| 法式电商杂志风胶囊衣橱 | [capsule-wardrobe-commerce.md](test-fixtures/articles/capsule-wardrobe-commerce.md) | [cards.md](test-fixtures/expected/capsule-wardrobe-commerce/cards.md) | [prompts.md](test-fixtures/expected/capsule-wardrobe-commerce/prompts.md) |
+
+更多完整基线在 `test-fixtures/expected/`。
+
 ## 目录结构
 
 - `.gitignore`：忽略系统文件、编辑器文件、临时文件、日志和生成产物。
