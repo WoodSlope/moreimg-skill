@@ -77,6 +77,17 @@ MoreImg 在提示词和发布配文生成后停止。它不生成位图图片，
 
 更多完整基线在 `test-fixtures/expected/`。
 
+## 图文卡提示词生成示例
+
+<table>
+  <tr>
+    <td><img src="assets/readme/prompt-card-example-0.png" alt="Agent 失败排错封面图文卡" width="220"></td>
+    <td><img src="assets/readme/prompt-card-example-1.png" alt="Agent 失败后先别重写提示词对比页" width="220"></td>
+    <td><img src="assets/readme/prompt-card-example-2.png" alt="Agent 五步排错链路流程页" width="220"></td>
+    <td><img src="assets/readme/prompt-card-example-3.png" alt="Agent 排错检查项清单页" width="220"></td>
+  </tr>
+</table>
+
 ## 目录结构
 
 - `.gitignore`：忽略系统文件、编辑器文件、临时文件、日志和生成产物。
